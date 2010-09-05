@@ -2,4 +2,4 @@
 .bundle
 
 # Credentials
-*.yaml
+.twitter
