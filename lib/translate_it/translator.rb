@@ -4,9 +4,6 @@ module TranslateIt
   module Google
     extend self
     
-    InvalidTranslationLanguagePair = Class.new(StandardError)
-    UnknownResponseStatus = Class.new(StandardError)
-    
     LANGUAGE_CODES = {
       'AFRIKAANS' => 'af',
       'ALBANIAN' => 'sq',
@@ -129,15 +126,16 @@ module TranslateIt
       url
     end
     
-    def parse_response(response)
+    def parse_response(response, options)
       json = JSON.parse response
-      case json["responseStatus"]
-      when 200
-        json["responseData"]["translatedText"]
-      when 400
-        raise InvalidTranslationLanguagePair if json["responseDetails"] == "invalid translation language pair"
-      else
-        raise UnknownResponseStatus
+      if json["responseStatus"] == 200
+        output = json["responseData"]["translatedText"]
+        output << " (#{LANGUAGE_CODES[options[:to].upcase].to_s}) [#{options[:q]} - "
+        output << (options[:from].empty? ? json["responseData"]["detectedSourceLanguage"] : LANGUAGE_CODES[options[:from].upcase].to_s)
+        output << "]"
+        output
+      elsif json["responseStatus"] >= 400
+        "#{json["responseDetails"]}, visit http://translate-it.heroku.com for supported commands"
       end
     end
 
@@ -145,7 +143,7 @@ module TranslateIt
       response = open(generate_translation_url(options),
         "User-Agent" => "Ruby/#{RUBY_VERSION}",
         "Referer" => "http://translate-it.heroku.com")
-      parse_response response.read
+      parse_response response.read, options
     end
   end
 end

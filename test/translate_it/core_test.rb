@@ -56,5 +56,41 @@ class CoreTest < Test::Unit::TestCase
         Regexp.new(@mention.user.screen_name), {:in_reply_to_status_id => @mention.id}).once
       TranslateIt.reply @mention, client
     end
+    
+    describe "on duplicate exceptions" do
+      setup do
+        @client = flexmock("client")
+        @client.should_receive(:update).and_raise(Twitter::General.new("data"), "(403): Forbidden - Status is a duplicate.").once
+      end
+      
+      test "rescue the exception and retries" do
+        @client.should_receive(:update).and_return(true).once
+        assert_nothing_raised do
+          TranslateIt.reply @mention, @client
+        end
+      end
+
+      test "replies with a message about the duplicate query" do
+        @client.should_receive(:update).with(
+          Regexp.new("already tried"), {:in_reply_to_status_id => @mention.id}).once
+        TranslateIt.reply @mention, @client
+      end
+    end
+  end
+  
+  describe "reply last mentions" do
+    setup do
+      @client = flexmock("client")
+      @mentions = YAML::load(open("#{TranslateIt::BASE_DIR}/test/fixtures/mentions"))[0..1]
+      @client.should_receive(:mentions).with(:since_id => @mentions.last.id).and_return(@mentions).once
+    end
+    
+    test "starts from the provided id" do
+      @client.should_receive(:update).with(
+        Regexp.new("metal"), {:in_reply_to_status_id => @mentions[-1].id}).once
+      @client.should_receive(:update).with(
+        Regexp.new("bear"), {:in_reply_to_status_id => @mentions[-2].id}).once
+      TranslateIt.reply_last_mentions(@mentions.last.id, @client)
+    end
   end
 end

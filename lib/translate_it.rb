@@ -20,3 +20,6 @@ require "translate_it/translator"
 # TranslateIt.reply_last_mentions
 
 # puts TranslateIt::Google.translate(:from => "portuguese", :to => "bravan", :q => "urso de pelúcia")
+
+# mentions = YAML::load(open("#{TranslateIt::BASE_DIR}/test/fixtures/mentions"))[0..1]
+# mentions.reverse.each {|m| puts m.text}

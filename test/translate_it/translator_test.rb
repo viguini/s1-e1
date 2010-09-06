@@ -36,28 +36,31 @@ class TranslatorTest < Test::Unit::TestCase
   end
   
   describe "#parse_response" do
-    describe "with status 200" do
-      setup do
-        @response = '{"responseData": {"translatedText":"teddy bear"}, "responseDetails": null, "responseStatus": 200}' 
-      end
-      
+    describe "status 200" do
       test "extracts the translated text" do
-        assert_equal "teddy bear", TranslateIt::Google.parse_response(@response)
+        options = {:from => "portuguese", :to => "english", :q => "urso de pelúcia"}
+        response = '{"responseData": {"translatedText":"teddy bear"}, "responseDetails": null, "responseStatus": 200}'
+        assert_equal "teddy bear (en) [urso de pelúcia - pt]", TranslateIt::Google.parse_response(response, options)
       end
       
-      test "does not raise exceptions" do
-        assert_nothing_raised do
-          TranslateIt::Google.parse_response(@response)
-        end
+      test "extracts the from language from the response" do
+        options = {:from => "", :to => "english", :q => "urso de pelúcia"}
+        response = '{"responseData": {"translatedText":"teddy bear","detectedSourceLanguage":"pt"}, "responseDetails": null, "responseStatus": 200}'
+        assert_equal "teddy bear (en) [urso de pelúcia - pt]", TranslateIt::Google.parse_response(response, options)
       end
     end
     
-    describe "with invalid language pair" do
-      test "raise exception" do
+    describe "status greater than 200" do
+      test "points to the documentation" do
+        options = {:from => "portuguese", :to => "wrong_language", :q => "urso de pelúcia"}
         response = '{"responseData": null, "responseDetails": "invalid translation language pair", "responseStatus": 400}'
-        assert_raise(TranslateIt::Google::InvalidTranslationLanguagePair) do 
-          TranslateIt::Google.parse_response(response)
-        end
+        assert_match /http:\/\/translate-it.heroku.com/, TranslateIt::Google.parse_response(response, options)
+      end
+      
+      test "show the error details" do
+        options = {:from => "portuguese", :to => "wrong_language", :q => "urso de pelúcia"}
+        response = '{"responseData": null, "responseDetails": "invalid translation language pair", "responseStatus": 400}'
+        assert_match /invalid translation language pair/, TranslateIt::Google.parse_response(response, options)
       end
     end
   end
@@ -73,7 +76,7 @@ class TranslatorTest < Test::Unit::TestCase
     end
     
     test "requests the translation" do
-      assert_equal "teddy bear", TranslateIt::Google.translate(@options)
+      assert_equal "teddy bear (en) [urso de pelúcia - pt]", TranslateIt::Google.translate(@options)
     end
   end
 end
