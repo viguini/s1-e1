@@ -1,0 +1,246 @@
+--- 
+- !map:Hashie::Mash 
+  created_at: Mon Sep 06 04:37:45 +0000 2010
+  in_reply_to_screen_name: translate_it
+  source: web
+  retweeted: false
+  truncated: false
+  in_reply_to_status_id: 
+  in_reply_to_user_id: 185946604
+  contributors: 
+  place: 
+  coordinates: 
+  user: !map:Hashie::Mash 
+    listed_count: 3
+    profile_background_image_url: http://s.twimg.com/a/1283555538/images/themes/theme1/bg.png
+    friends_count: 25
+    profile_image_url: http://a3.twimg.com/profile_images/1009343967/71f703c737df221688f44c731cacc9dd_normal.jpeg
+    description: ""
+    statuses_count: 23
+    profile_sidebar_fill_color: e0ff92
+    url: 
+    show_all_inline_media: false
+    profile_background_tile: false
+    favourites_count: 1
+    screen_name: aguids
+    contributors_enabled: false
+    lang: en
+    created_at: Tue Jun 30 07:11:44 +0000 2009
+    profile_sidebar_border_color: 87bc44
+    location: Salvador, Brasil
+    geo_enabled: false
+    following: false
+    verified: false
+    profile_background_color: 9ae4e8
+    follow_request_sent: false
+    protected: false
+    profile_text_color: "000000"
+    name: Felipe Doria
+    profile_use_background_image: true
+    time_zone: Brasilia
+    followers_count: 29
+    id: 52331961
+    notifications: false
+    utc_offset: -10800
+    profile_link_color: 0000ff
+  geo: 
+  retweet_count: 
+  id: 23117094131
+  favorited: false
+  text: "@translate_it urso de pel\xC3\xBAcia"
+- !map:Hashie::Mash 
+  created_at: Mon Sep 06 04:37:18 +0000 2010
+  in_reply_to_screen_name: translate_it
+  source: web
+  retweeted: false
+  truncated: false
+  in_reply_to_status_id: 
+  in_reply_to_user_id: 185946604
+  contributors: 
+  place: 
+  coordinates: 
+  user: !map:Hashie::Mash 
+    listed_count: 3
+    profile_background_image_url: http://s.twimg.com/a/1283555538/images/themes/theme1/bg.png
+    friends_count: 25
+    profile_image_url: http://a3.twimg.com/profile_images/1009343967/71f703c737df221688f44c731cacc9dd_normal.jpeg
+    description: ""
+    statuses_count: 23
+    profile_sidebar_fill_color: e0ff92
+    url: 
+    show_all_inline_media: false
+    profile_background_tile: false
+    favourites_count: 1
+    screen_name: aguids
+    contributors_enabled: false
+    lang: en
+    created_at: Tue Jun 30 07:11:44 +0000 2009
+    profile_sidebar_border_color: 87bc44
+    location: Salvador, Brasil
+    geo_enabled: false
+    following: false
+    verified: false
+    profile_background_color: 9ae4e8
+    follow_request_sent: false
+    protected: false
+    profile_text_color: "000000"
+    name: Felipe Doria
+    profile_use_background_image: true
+    time_zone: Brasilia
+    followers_count: 29
+    id: 52331961
+    notifications: false
+    utc_offset: -10800
+    profile_link_color: 0000ff
+  geo: 
+  retweet_count: 
+  id: 23117065032
+  favorited: false
+  text: "@translate_it to english urso de pel\xC3\xBAcia"
+- !map:Hashie::Mash 
+  created_at: Mon Sep 06 04:37:01 +0000 2010
+  in_reply_to_screen_name: translate_it
+  source: web
+  retweeted: false
+  truncated: false
+  in_reply_to_status_id: 
+  in_reply_to_user_id: 185946604
+  contributors: 
+  place: 
+  coordinates: 
+  user: !map:Hashie::Mash 
+    listed_count: 3
+    profile_background_image_url: http://s.twimg.com/a/1283555538/images/themes/theme1/bg.png
+    friends_count: 25
+    profile_image_url: http://a3.twimg.com/profile_images/1009343967/71f703c737df221688f44c731cacc9dd_normal.jpeg
+    description: ""
+    statuses_count: 23
+    profile_sidebar_fill_color: e0ff92
+    url: 
+    show_all_inline_media: false
+    profile_background_tile: false
+    favourites_count: 1
+    screen_name: aguids
+    contributors_enabled: false
+    lang: en
+    created_at: Tue Jun 30 07:11:44 +0000 2009
+    profile_sidebar_border_color: 87bc44
+    location: Salvador, Brasil
+    geo_enabled: false
+    following: false
+    verified: false
+    profile_background_color: 9ae4e8
+    follow_request_sent: false
+    protected: false
+    profile_text_color: "000000"
+    name: Felipe Doria
+    profile_use_background_image: true
+    time_zone: Brasilia
+    followers_count: 29
+    id: 52331961
+    notifications: false
+    utc_offset: -10800
+    profile_link_color: 0000ff
+  geo: 
+  retweet_count: 
+  id: 23117046520
+  favorited: false
+  text: "@translate_it from portuguese urso de pel\xC3\xBAcia"
+- !map:Hashie::Mash 
+  created_at: Mon Sep 06 04:36:36 +0000 2010
+  in_reply_to_screen_name: translate_it
+  source: web
+  retweeted: false
+  truncated: false
+  in_reply_to_status_id: 
+  in_reply_to_user_id: 185946604
+  contributors: 
+  place: 
+  coordinates: 
+  user: !map:Hashie::Mash 
+    listed_count: 3
+    profile_background_image_url: http://s.twimg.com/a/1283555538/images/themes/theme1/bg.png
+    friends_count: 25
+    profile_image_url: http://a3.twimg.com/profile_images/1009343967/71f703c737df221688f44c731cacc9dd_normal.jpeg
+    description: ""
+    statuses_count: 23
+    profile_sidebar_fill_color: e0ff92
+    url: 
+    show_all_inline_media: false
+    profile_background_tile: false
+    favourites_count: 1
+    screen_name: aguids
+    contributors_enabled: false
+    lang: en
+    created_at: Tue Jun 30 07:11:44 +0000 2009
+    profile_sidebar_border_color: 87bc44
+    location: Salvador, Brasil
+    geo_enabled: false
+    following: false
+    verified: false
+    profile_background_color: 9ae4e8
+    follow_request_sent: false
+    protected: false
+    profile_text_color: "000000"
+    name: Felipe Doria
+    profile_use_background_image: true
+    time_zone: Brasilia
+    followers_count: 29
+    id: 52331961
+    notifications: false
+    utc_offset: -10800
+    profile_link_color: 0000ff
+  geo: 
+  retweet_count: 
+  id: 23117020214
+  favorited: false
+  text: "@translate_it urso de pel\xC3\xBAcia from portuguese to english"
+- !map:Hashie::Mash 
+  created_at: Sun Sep 05 21:19:36 +0000 2010
+  in_reply_to_screen_name: translate_it
+  source: web
+  retweeted: false
+  truncated: false
+  in_reply_to_status_id: 
+  in_reply_to_user_id: 185946604
+  contributors: 
+  place: 
+  coordinates: 
+  user: !map:Hashie::Mash 
+    show_all_inline_media: false
+    profile_background_image_url: http://s.twimg.com/a/1283555538/images/themes/theme1/bg.png
+    favourites_count: 1
+    profile_image_url: http://a3.twimg.com/profile_images/1009343967/71f703c737df221688f44c731cacc9dd_normal.jpeg
+    description: ""
+    contributors_enabled: false
+    profile_sidebar_fill_color: e0ff92
+    url: 
+    geo_enabled: false
+    profile_background_tile: false
+    screen_name: aguids
+    lang: en
+    created_at: Tue Jun 30 07:11:44 +0000 2009
+    profile_sidebar_border_color: 87bc44
+    location: Salvador, Brasil
+    verified: false
+    follow_request_sent: false
+    following: false
+    profile_background_color: 9ae4e8
+    followers_count: 29
+    protected: false
+    profile_text_color: "000000"
+    name: Felipe Doria
+    listed_count: 3
+    profile_use_background_image: true
+    time_zone: Brasilia
+    friends_count: 25
+    id: 52331961
+    statuses_count: 19
+    notifications: false
+    utc_offset: -10800
+    profile_link_color: 0000ff
+  geo: 
+  retweet_count: 
+  id: 23089181014
+  favorited: false
+  text: "@translate_it sof\xC3\xA1 from portuguese to english"

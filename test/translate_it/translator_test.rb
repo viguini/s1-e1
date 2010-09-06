@@ -69,7 +69,7 @@ class TranslatorTest < Test::Unit::TestCase
       open_uri_options = {"User-Agent" => "Ruby/#{RUBY_VERSION}", "Referer" => "http://translate-it.heroku.com"}
       response = '{"responseData": {"translatedText":"teddy bear"}, "responseDetails": null, "responseStatus": 200}'
       result = StringIO.new(response, 'r')
-      flexmock(TranslateIt::Google).should_receive(:open).with(url, open_uri_options).and_return(result)
+      flexmock(TranslateIt::Google).should_receive(:open).with(url, open_uri_options).and_return(result).once
     end
     
     test "requests the translation" do

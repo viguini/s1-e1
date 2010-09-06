@@ -38,4 +38,23 @@ class CoreTest < Test::Unit::TestCase
       end
     end
   end
+  
+  describe "reply" do
+    setup do |variable|
+      @mention = YAML::load(open("#{TranslateIt::BASE_DIR}/test/fixtures/mentions")).first
+      @client = flexmock("client", :update => true)
+    end
+    
+    test "translate the tweet" do
+      flexmock(TranslateIt::Google).should_receive(:translate).and_return("teddy bear").once
+      TranslateIt.reply @mention, @client
+    end
+    
+    test "replies the translation" do
+      client = flexmock("client")
+      client.should_receive(:update).with(
+        Regexp.new(@mention.user.screen_name), {:in_reply_to_status_id => @mention.id}).once
+      TranslateIt.reply @mention, client
+    end
+  end
 end

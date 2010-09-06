@@ -133,7 +133,7 @@ module TranslateIt
       json = JSON.parse response
       case json["responseStatus"]
       when 200
-        return json["responseData"]["translatedText"]
+        json["responseData"]["translatedText"]
       when 400
         raise InvalidTranslationLanguagePair if json["responseDetails"] == "invalid translation language pair"
       else
