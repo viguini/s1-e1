@@ -1,10 +1,4 @@
-# encoding: utf-8
-
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../../lib")
-require "translate_it"
-
-require "test/unit"
-require "contest"
+require File.join(File.expand_path(File.dirname(__FILE__)), "..", "test_helper")
 
 class CoreTest < Test::Unit::TestCase
   describe "#tweet parsing" do
@@ -41,37 +35,6 @@ class CoreTest < Test::Unit::TestCase
     
       test "extracts the text query" do
         assert_equal "urso de pelúcia", @result[:q]
-      end
-    end
-  end
-  
-  describe "#generate_translation_url" do
-    describe "general" do
-      setup do
-        @result = TranslateIt.generate_translation_url(:from => "portuguese", :to => "english", :q => "urso de pelúcia")
-      end
-      
-      test "builds the query" do
-        assert_equal "urso de pelúcia", CGI.unescape(@result)[/q=([^&]+)/, 1]
-      end
-      
-      test "escapes the params" do
-        assert_no_match /pelúcia/, @result
-        assert_no_match /\s/, @result
-      end
-    end
-    
-    describe "with no source language" do
-      test "builds the language pairs" do
-        @result = TranslateIt.generate_translation_url(:from => "", :to => "english", :q => "urso de pelúcia")
-        assert_equal "|en", CGI.unescape(@result)[/langpair=([^&]+)/, 1]
-      end
-    end
-
-    describe "with a source language" do
-      test "builds the language pairs" do
-        @result = TranslateIt.generate_translation_url(:from => "portuguese", :to => "english", :q => "urso de pelúcia")
-        assert_equal "pt|en", CGI.unescape(@result)[/langpair=([^&]+)/, 1]
       end
     end
   end

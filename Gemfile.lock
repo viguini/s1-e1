@@ -3,9 +3,11 @@ GEM
   specs:
     contest (0.1.2)
     crack (0.1.6)
+    flexmock (0.8.7)
     hashie (0.2.2)
     httparty (0.5.2)
       crack (= 0.1.6)
+    json (1.4.6)
     oauth (0.4.3)
     test-unit (2.1.1)
     twitter (0.9.8)
@@ -20,5 +22,7 @@ PLATFORMS
 
 DEPENDENCIES
   contest
+  flexmock
+  json
   test-unit
   twitter
