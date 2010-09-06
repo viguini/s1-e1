@@ -3,6 +3,7 @@
 require "rubygems"
 require "bundler/setup"
 require "twitter"
+require "cgi"
 
 module TranslateIt
   BASE_DIR = File.join(File.dirname(__FILE__), '..')
