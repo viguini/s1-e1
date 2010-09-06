@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require File.join(File.expand_path(File.dirname(__FILE__)), "..", "test_helper")
 
 class CoreTest < Test::Unit::TestCase
@@ -79,18 +81,35 @@ class CoreTest < Test::Unit::TestCase
   end
   
   describe "reply last mentions" do
-    setup do
-      @client = flexmock("client")
-      @mentions = YAML::load(open("#{TranslateIt::BASE_DIR}/test/fixtures/mentions"))[0..1]
-      @client.should_receive(:mentions).with(:since_id => @mentions.last.id).and_return(@mentions).once
+    describe "with new mentions" do
+      setup do
+        @client = flexmock("client")
+        @mentions = YAML::load(open("#{TranslateIt::BASE_DIR}/test/fixtures/mentions"))[0..1]
+        @client.should_receive(:mentions).with(:since_id => @mentions.last.id).and_return(@mentions).once
+        @client.should_receive(:update).with(
+          Regexp.new("metal"), {:in_reply_to_status_id => @mentions[-1].id}).once
+        @client.should_receive(:update).with(
+          Regexp.new("bear"), {:in_reply_to_status_id => @mentions[-2].id}).once
+      end
+    
+      test "starts from the provided id" do
+        TranslateIt.reply_last_mentions(@mentions.last.id, @client)
+      end
+    
+      test "returns the id of the last replied tweet" do
+        assert_equal @mentions.first.id, TranslateIt.reply_last_mentions(@mentions.last.id, @client)
+      end
     end
     
-    test "starts from the provided id" do
-      @client.should_receive(:update).with(
-        Regexp.new("metal"), {:in_reply_to_status_id => @mentions[-1].id}).once
-      @client.should_receive(:update).with(
-        Regexp.new("bear"), {:in_reply_to_status_id => @mentions[-2].id}).once
-      TranslateIt.reply_last_mentions(@mentions.last.id, @client)
+    describe "without new mentions" do
+      test "returns since_id" do
+        client = flexmock("client")
+        mentions = []
+        since_id = 17
+        client.should_receive(:mentions).with(:since_id => since_id).and_return(mentions).once
+      
+        assert_equal since_id, TranslateIt.reply_last_mentions(since_id, client)
+      end
     end
   end
 end

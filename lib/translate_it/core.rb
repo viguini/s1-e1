@@ -27,8 +27,10 @@ module TranslateIt
   
   def reply_last_mentions(since_id = nil, client = Twitter::Base.new(TranslateIt::OAuth.load))
     query = since_id.nil? ? {} : {:since_id => since_id}
-    client.mentions(query).reverse.each do |tweet|
+    last_mentions = client.mentions(query)
+    last_mentions.reverse.each do |tweet|
       reply(tweet, client)
     end
+    last_mentions.first.nil? ? since_id : last_mentions.first.id
   end
 end
