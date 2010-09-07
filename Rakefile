@@ -1,8 +1,8 @@
+require "rubygems"
 require "rake"
 require "rake/testtask"
-require File.join(File.expand_path(File.dirname(__FILE__)), "lib", "translate_it")
 
-POLL_INTERVAL = 40
+POLL_INTERVAL = 25
 
 task :default => [:test]
 
@@ -15,6 +15,8 @@ end
 
 desc "Polls Twitter for new mentions and reply them"
 task :poll do
+  require File.join(File.expand_path(File.dirname(__FILE__)), "lib", "translate_it")
+  
   client = Twitter::Base.new(TranslateIt::OAuth.load)
   since_id = client.user_timeline(:count => 1).first.in_reply_to_status_id
   loop do
