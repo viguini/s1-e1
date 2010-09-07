@@ -1,55 +1,142 @@
 -- RMU SESSION #1 | PROBLEM 1
--- Submissions due 20:00 UTC 2010.09.07
 
-If in doubt about how to submit, see SUBMISSION_GUIDELINES file.
+== TranslateIt Bot
 
-For exercise #1, you'll be doing a bit of web service integration.  Your goal
-will be to create some interesting mashup by connecting any web service of your
-choosing to twitter, either by creating an automated feed from an external
-data source, or a bot which responds in an interesting way to certain kinds
-of tweets.
+This purpose of this bot is to offer an easy to use translation service for twitter users. The web service providing the translations is the Google Translation API.
 
-This exercise is pretty open ended, but please follow the guidelines listed below.
+== Usage
 
-== GUIDELINES
+Mention *@translate_it* with your query and it will reply with the translation. All that is needed is the query, with optional from and to language pair. From language defaults to blank and can be detected automatically (most of the time) and to language defaults to english.
 
-1. You can use any Ruby based Twitter libraries you'd like.
+All the following tweets
 
-2. You must integrate with some external application, preferably one that you
-haven't interacted with programatically before.
+    @translate_it from portuguese to english urso de pelúcia
+    @translate_it urso de pelúcia to english
+    @translate_it from portuguese urso de pelúcia
+    @translate_it urso de pelúcia
 
-3. Any service that we all can access via HTTP without paying for it 
-is fair game.   Even if you want to do something like use Mechanize to 
-scrape a site that  has no defined service API, that'd be acceptable.
+will reply
 
-4. You should create a new twitter account for testing your bot, and have it
-running live to demonstrate it on 9/8.
+    @user teddy bear (en) [urso de pelúcia - pt]
 
-5. You should use the mailing list to communicate what sorts of bots you are
-building. Ideally, no two bots will provide the same featureset.
+=== Available Languages
 
-6. You may look at other bots for inspiration, but do not submit a solution that
-simply mirrors something else you found.  Be creative :)
+Any language supported by the Google Translation service is fair game:
 
-7. You may help each other with the technical aspect of this project, so feel
-free to discuss integrating with twitter on #rmu-session-1 or on the mailing
-list.  You can also ask folks for help with how to integrate with whatever other
-services you want to use.  While your actual submission needs to be your own
-work, do not be afraid to ask for help from your fellow students.
+* afrikaans
+* albanian
+* amharic
+* arabic
+* armenian
+* azerbaijani
+* basque
+* belarusian
+* bengali
+* bihari
+* breton
+* bulgarian
+* burmese
+* catalan
+* cherokee
+* chinese
+* chinese_simplified
+* chinese_traditional
+* corsican
+* croatian
+* czech
+* danish
+* dhivehi
+* dutch
+* english
+* esperanto
+* estonian
+* faroese
+* filipino
+* finnish
+* french
+* frisian
+* galician
+* georgian
+* german
+* greek
+* gujarati
+* haitian_creole
+* hebrew
+* hindi
+* hungarian
+* icelandic
+* indonesian
+* inuktitut
+* irish
+* italian
+* japanese
+* javanese
+* kannada
+* kazakh
+* khmer
+* korean
+* kurdish
+* kyrgyz
+* lao
+* latin
+* latvian
+* lithuanian
+* luxembourgish
+* macedonian
+* malay
+* malayalam
+* maltese
+* maori
+* marathi
+* mongolian
+* nepali
+* norwegian
+* occitan
+* oriya
+* pashto
+* persian
+* polish
+* portuguese
+* portuguese_portugal
+* punjabi
+* quechua
+* romanian
+* russian
+* sanskrit
+* scots_gaelic
+* serbian
+* sindhi
+* sinhalese
+* slovak
+* slovenian
+* spanish
+* sundanese
+* swahili
+* swedish
+* syriac
+* tajik
+* tamil
+* tatar
+* telugu
+* thai
+* tibetan
+* tonga
+* turkish
+* ukrainian
+* urdu
+* uzbek
+* uighur
+* vietnamese
+* welsh
+* yiddish
+* yoruba
 
-Examples:
+=== Running the bot from your twitter account
 
-A bot which tweets all posts to Hacker News:
-http://twitter.com/hackernewsbot
+1. Clone or download the repo.
+2. bundle install
+3. rake poll
 
-A list of useful twitter bots (i have not tested these, but you can get the idea
-from here):
-http://www.techmalaya.com/2007/12/13/10-most-useful-twitter-bots-list/
+=== Contact
 
-== QUESTIONS?
-
-Hit up the mailing list or IRC.
-
-Please note that I am traveling for the next 7 days, and will only have access
-to email 9/1, 9/2, and 9/7.  I will try to answer questions during that time,
-but please rely on your fellow students for help in between. 
+mailto:felipe.doria@gmail.com or @aguids on twitter.
